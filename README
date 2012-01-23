@@ -11,3 +11,51 @@
    "tabs"
   ]
 }
+
+<style>
+body {
+  width:750 px;
+  height:20 px;
+}
+</style>
+<script type="text/javascript"> 
+
+function loaded() {
+  
+	chrome.tabs.getSelected(null, function(tab) {
+		
+		
+		var mydiv = document.getElementById("myDiv");
+		var aTag = document.createElement('a');
+		aTag.setAttribute
+		aTag.setAttribute("name", "fb_share");
+		aTag.setAttribute("share_url", tab.url);
+		aTag.setAttribute("type","icon");
+		var url = "http://www.facebook.com/sharer/sharer.php?u="+tab.url+"t="+tab.title ;
+		
+		aTag.setAttribute('href',url);
+		 aTag.addEventListener("click", function() {
+            chrome.tabs.create({url:url}); 
+            return(false);
+        	});
+		aTag.innerHTML = "Facebook share";
+		mydiv.appendChild(aTag);
+		document.getElementById('iframe').setAttribute('src',url);
+
+       });
+	
+	
+
+} 
+</script>
+
+
+<html>
+
+<body onload="loaded()">
+<div id="myDiv">
+
+</div>
+
+</body>
+</html>
