@@ -1,0 +1,13 @@
+{
+  "name": "Shopply",
+  "version": "1.0",
+  "description": "Shop what you want!",
+  "browser_action": {
+    "default_icon": "Shopplyimg.jpeg",
+    "popup":"display1.html"
+  },
+  "permissions": [
+    "http://api.facebook.com/",
+   "tabs"
+  ]
+}
